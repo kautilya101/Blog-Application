@@ -30,8 +30,6 @@ export default function SearchBlog() {
         />
         <FaSearch className='text-secondary cursor-pointer hover:text-black' onClick={handleSearchBlog}/>
       </div>
-
-  
         {result.length > 0 ? 
               <BlogList blogs={result} loading={loading}/>
               : 
