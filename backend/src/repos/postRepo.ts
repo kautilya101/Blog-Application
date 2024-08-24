@@ -1,4 +1,4 @@
-import { Comment, Post } from "@prisma/client";
+
 import prisma from "../lib/prisma";
 
 export const signInUser = async(email: string) => {

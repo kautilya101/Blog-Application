@@ -1,6 +1,5 @@
-import { User } from '@prisma/client';
 import { Request,Response, NextFunction } from 'express';
-import jwt, { Jwt, JwtPayload } from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 
 declare global {
   namespace Express {
