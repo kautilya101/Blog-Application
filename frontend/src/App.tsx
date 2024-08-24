@@ -24,6 +24,7 @@ function App() {
         </Route>
         <Route element={<SignIn/>} path="/login" />
         <Route element={<SignUp/>} path="/register" />
+        <Route path={'*'} element={<ErrorPage/>} />
       </>
     )
   )
