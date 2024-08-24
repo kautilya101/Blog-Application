@@ -1,8 +1,7 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from 'react'
+import { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { BlogContext } from '../../context/BlogContextProvider';
 import { TBlog, TComment } from '../../types/types';
-import { BiLoaderCircle } from 'react-icons/bi';
 import { nameInitials,formatDate,formatTime } from '../../utils/utils'
 import { FaArrowRight } from 'react-icons/fa';
 import { FiEye } from 'react-icons/fi';

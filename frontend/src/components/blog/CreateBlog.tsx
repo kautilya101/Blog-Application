@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from 'react'
+import { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { BlogContext } from '../../context/BlogContextProvider'
 
 export default function CreateBlog() {
