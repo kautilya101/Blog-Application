@@ -32,7 +32,6 @@ export default function CreateBlog() {
       })
       return;
     }
-    console.log('worked');
     if(title != '' && content != ''){
       createBlog(title,content);
       setTitle('')

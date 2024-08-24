@@ -23,7 +23,6 @@ export default function BlogList({ blogs, loading, blogtype }: TBlogList) {
     deleteBlog(userId);
   };
 
-  console.log(blogs)
 
   return (
     <div className="w-full">

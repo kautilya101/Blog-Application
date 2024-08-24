@@ -19,7 +19,13 @@ export default function PersonalBlogs() {
     <div className="w-full mb-5">
       <CreateBlog />
       <div className=" list-width mx-auto my-5 h-[1px] bg-black/30"></div>
-      <BlogList blogs={personalBlogs} loading={loading} blogtype={"user"} />
+      { personalBlogs.length > 0 
+        ? <BlogList blogs={personalBlogs} loading={loading} blogtype={"user"} />
+        : 
+          <div className="list-width flex items-center justify-center">
+            You haven't posted anything.
+          </div>
+        } 
     </div>
   );
 }

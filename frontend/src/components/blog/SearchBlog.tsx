@@ -26,7 +26,7 @@ export default function SearchBlog() {
           type='text'
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          placeholder='Add a comment'
+          placeholder='Search a title'
         />
         <FaSearch className='text-secondary cursor-pointer hover:text-black' onClick={handleSearchBlog}/>
       </div>

@@ -53,7 +53,6 @@ export default function BlogProvider({ children }: { children: ReactNode }) {
   const getAllPersonalBlogs = async () => {
     setLoading(true);
     try {
-      console.log("fetching");
       const response = await fetch(url + "/api/user-posts", {
         method: "POST",
         headers: { Authorization: token, "Content-Type": "application/json" },
@@ -92,7 +91,6 @@ export default function BlogProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ title, content }),
       });
       const createdBlog = await response.json();
-      console.log(createdBlog.posts)
       setError(null);
       setBlogs([createdBlog.posts, ...blogs ]);
       setPersonalBlogs((prev) => [createdBlog.posts, ...prev]);
@@ -110,7 +108,7 @@ export default function BlogProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify(updatedBlog),
       });
       const savedBlog = await response.json();
-      console.log(savedBlog.posts)
+
       setError(null);
       setBlogs((prev) =>
         prev.map((blog) => (blog.id === savedBlog.posts.id ? savedBlog.posts : blog))
@@ -134,7 +132,6 @@ export default function BlogProvider({ children }: { children: ReactNode }) {
           Authorization: token,
         },
       });
-      console.log(await response.json());
       setBlogs(blogs.filter((blog) => blog.id !== id));
       setPersonalBlogs((prev) => prev.filter((blog) => blog.id != id));
       setError(null);
