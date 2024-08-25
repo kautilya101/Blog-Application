@@ -29,7 +29,12 @@ To run Backend:
 + cd src
 + npm run build 
 
-
+Note:  You will need to add environment variables in *backend* for 
++ PORT,
++ DATABSE_URL,
++ ACCESS_SECRET_TOKEN in a .env file.
+Same for *frontend* you need to add url of backend hosted server in 
++ VITE_BASE_URL.  ex: localhost:3000/v1
 
 
 
