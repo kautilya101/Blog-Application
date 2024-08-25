@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import useDebounce from '../../Hooks/useDebounce'
 import { BlogContext } from '../../context/BlogContextProvider'
