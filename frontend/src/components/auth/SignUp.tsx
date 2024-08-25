@@ -1,6 +1,5 @@
-import React, { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
 import Header from '../Header';
 
 export default function SignUp() {

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { GoHome } from "react-icons/go";
 import { MdDynamicFeed } from "react-icons/md";
 import { RiSearchLine } from 'react-icons/ri';

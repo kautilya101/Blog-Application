@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Sidebar from './Sidebar'
 import { Outlet, useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'

@@ -1,7 +1,5 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom"
 import Layout from "./components/Layout"
-import BlogList from "./components/blog/BlogList"
-import BlogItem from "./components/blog/BlogItem"
 import SignIn from "./components/auth/SignIn"
 import SignUp from "./components/auth/SignUp"
 import ErrorPage from "./components/ErrorPage"

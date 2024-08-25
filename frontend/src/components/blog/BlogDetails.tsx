@@ -7,8 +7,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import { FiEye } from 'react-icons/fi';
 export default function BlogDetails() {
 
-  const {blogs,addComment,loading} = useContext(BlogContext)!;
-  // const [pageloading,setPageLoading] = useState(true);
+  const {blogs,addComment} = useContext(BlogContext)!;
   const [blog,setBlog] = useState<TBlog>();
   const [comment, setComment] = useState('')
   const {id} = useParams();

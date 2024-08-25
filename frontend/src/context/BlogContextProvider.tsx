@@ -2,7 +2,6 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import { BlogContextType, TBlog, TUpdateValue, User } from "../types/types";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
-import { TfiControlShuffle } from "react-icons/tfi";
 
 export const BlogContext = createContext<BlogContextType | undefined>(
   undefined
@@ -126,7 +125,7 @@ export default function BlogProvider({ children }: { children: ReactNode }) {
 
   const deleteBlog = async (id: number) => {
     try {
-      const response = await fetch(url + `/api/posts/${id}`, {
+      await fetch(url + `/api/posts/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: token,
@@ -143,7 +142,7 @@ export default function BlogProvider({ children }: { children: ReactNode }) {
   const addComment = async (content: string, postId: number) => {
     setLoading(true)
     try {
-      const response = await fetch(url + "/api/posts/comment", {
+      await fetch(url + "/api/posts/comment", {
         method: "POST",
         headers: { Authorization: token, "Content-Type": "application/json" },
         body: JSON.stringify({ content, postId }),
@@ -159,7 +158,7 @@ export default function BlogProvider({ children }: { children: ReactNode }) {
 
   const increaseViewCount = async (postId: number) => {
     try {
-      const response = await fetch(url + "/api/posts/view-count", {
+     await fetch(url + "/api/posts/view-count", {
         method: "POST",
         headers: { Authorization: token, "Content-Type": "application/json" },
         body: JSON.stringify({ postId }),
