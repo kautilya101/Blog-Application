@@ -1,4 +1,4 @@
-
+Note: Noticed sometimes app is taking a bit longer than expected do to the Deployment site used Render. 
 # Blog Application
 
 + ## Frontend
