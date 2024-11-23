@@ -27,7 +27,7 @@ export default function BlogItem({blog}:{blog:TBlog}) {
         <span>{blog.author.username || "Anonymus"}</span>
       </div>
       <div className=" space-y-3" onClick={() => handleBlogClick(blog.id)} > {/* heading and content */}
-        <span className='text-xl sm:text-2xl font-semibold text-text'>{blog.title}</span>
+        <span className='text-xl sm:text-2xl font-semibold text-text'>{blog.title[0].toUpperCase()+blog.title.slice(1)}</span>
         <div className="max-h-20 text-sm sm:text-base overflow-hidden cursor-pointer break-word text-text/90">
           {blog.content}
         </div>

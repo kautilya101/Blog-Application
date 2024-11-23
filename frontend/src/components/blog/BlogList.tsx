@@ -13,7 +13,7 @@ type TBlogList = {
 };
 
 export default function BlogList({ blogs, loading, blogtype }: TBlogList) {
-  const { deleteBlog,setUpdateValue } = useContext(BlogContext)!;
+  const { deleteBlog,setUpdateValue,error } = useContext(BlogContext)!;
 
   const EditBlog = (updateBlog: TUpdateValue) => {
     setUpdateValue(updateBlog)
@@ -61,6 +61,11 @@ export default function BlogList({ blogs, loading, blogtype }: TBlogList) {
             : blogs.map((blog) => <BlogItem key={blog.id} blog={blog} />)}
         </div>
       )}
+      {error ? 
+        <div className="text-center">
+          {error}
+        </div> : ""
+      }
     </div>
   );
 }

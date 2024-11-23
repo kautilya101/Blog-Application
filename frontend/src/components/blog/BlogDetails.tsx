@@ -14,6 +14,7 @@ export default function BlogDetails() {
   
   useEffect(() => {
     setBlog(blogs.find((blog) => blog.id === Number(id)));
+
   },[id,blogs]);
 
   const handleCommentChange = (e: ChangeEvent<HTMLInputElement>) =>{
@@ -27,10 +28,13 @@ export default function BlogDetails() {
     }
   }
 
+
+
   return (
     <div className="list-width">
-     {
-     blog && <div className='flex flex-col p-3 space-y-3 flex-1'>
+     { 
+     blog &&
+     <div className='flex flex-col p-3 space-y-3 flex-1'>
       <div className="flex items-center gap-2"> {/* image and name */}
         <div className="bg-secondary overflow-hidden text-background rounded-full flex items-center justify-center w-10 h-10">
           <span className="text-center">
@@ -40,7 +44,7 @@ export default function BlogDetails() {
         <span>{blog.author.username}</span>
       </div>
       <div className=" space-y-3"> {/* heading and content */}
-        <span className='text-xl sm:text-2xl font-semibold text-text'>{blog?.title}</span>
+        <span className='text-xl sm:text-2xl font-semibold text-text'>{blog.title[0].toUpperCase()+blog.title.slice(1)}</span>
         <div className="text-sm sm:text-base cursor-pointer text-text/90">
           {blog?.content}
         </div>

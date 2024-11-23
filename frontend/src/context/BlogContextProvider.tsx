@@ -42,10 +42,9 @@ export default function BlogProvider({ children }: { children: ReactNode }) {
       const data = await response.json();
       setBlogs(data.posts || []);
       setError(null);
-    } catch (e) {
-      setError("Error while Fetching at the time.");
-    } finally {
       setLoading(false);
+    } catch (e) {
+      setError("Error while fetching at the time.");
     }
   };
 
