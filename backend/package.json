@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx prisma generate && npx ts-node index.ts"
+    "build": "prisma generate && tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev src/index.ts"
   },
   "author": "",
   "license": "ISC",
