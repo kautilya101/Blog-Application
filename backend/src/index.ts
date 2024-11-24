@@ -13,7 +13,11 @@ app.use(express.json())
 app.use('/v1/api/user',authRouter)
 app.use('/v1/api/',postRouter)
 
-
+app.get("/ping", async(req,res) => {
+  res.status(200).json({
+    message: "pong"
+  })
+})
 
 app.listen(port,() => {
   console.log("Server running on: ", port);
