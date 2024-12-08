@@ -4,16 +4,17 @@ import { MdDynamicFeed } from "react-icons/md";
 import { RiSearchLine } from 'react-icons/ri';
 import { Link, NavLink } from 'react-router-dom';
 
-const SidebarIcon = ({icon,label}: {icon:ReactNode,label: string}) => {
+const SidebarIcon = ({icon,label,path}: {icon:ReactNode,label: string, path:string}) => {
 
   return (
-    <div className={"sidebar-icon group"}>
-        {icon}
-        <span className='sidebar-tooltip group-hover:scale-100'>
-        {label}
-      </span>
-      </div>
-      
+    <Link to={path}>
+      <div className={"sidebar-icon group"}>
+            {icon}
+          <span className='sidebar-tooltip group-hover:scale-100'>
+          {label}
+        </span>
+        </div>    
+  </Link>
   )
 }
 
@@ -22,7 +23,7 @@ export default function Sidebar() {
     <div className='top-0 left-0 w-16 flex flex-col
                   bg-white dark:bg-gray-900 shadow-lg'>
         {SideIcons.map((sideIcon,index) => (
-          <SidebarIcon icon={sideIcon.icon} label={sideIcon.label} key={`${sideIcon.label}+${index+1}`} />
+          <SidebarIcon key={`${sideIcon.label}+${index+1}`} icon={sideIcon.icon} label={sideIcon.label} path={sideIcon.path} />
         ))}
     </div>
   )
@@ -31,14 +32,17 @@ export default function Sidebar() {
 const SideIcons = [
   { 
     label: 'Home',
-    icon: <Link to={'/'}><GoHome className='w-6 h-6' /></Link>,
+    icon: <GoHome className='w-6 h-6' />,
+    path: '/'
   },
   {
-    label: 'Your Blogs',
-    icon: <Link to={'/user/blogs'}><MdDynamicFeed className='w-6 h-6' /></Link>
+    label: 'Create',
+    icon: <MdDynamicFeed className='w-6 h-6' />,
+    path: '/user/blogs'
   },
   {
     label: "Search",
-    icon: <NavLink to={'/search'} ><RiSearchLine className='w-6 h-6' /></NavLink>
+    icon: <RiSearchLine className='w-6 h-6' />,
+    path: '/search'
   }
 ]

@@ -9,7 +9,7 @@ export const BlogContext = createContext<BlogContextType | undefined>(
 
 export default function BlogProvider({ children }: { children: ReactNode }) {
   const url = import.meta.env.VITE_BASE_URL;
-  const token = Cookies.get("token") || "";
+  const [token, setToken] = useState(''); 
 
   const [blogs, setBlogs] = useState<TBlog[]>([]);
   const [updateValue, setUpdateValue] = useState<TUpdateValue | undefined>()
@@ -17,6 +17,24 @@ export default function BlogProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<unknown | null>();
   const [personalBlogs, setPersonalBlogs] = useState<TBlog[]>([]);
+
+  const getUserToken = () => {
+    try{
+      const tokenValue = Cookies.get('token') || '';
+      setToken(tokenValue);
+    }
+    catch(error){
+      setError("token not found");
+    }
+  }
+
+  const setUserToken = (token: string) => {
+    try{
+      setToken(token);
+    }catch(error){
+      setError("token not found");
+    }
+  }
 
   const getUser = () => {
     setLoading(true);
@@ -178,7 +196,7 @@ export default function BlogProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    getAllBlogs();
+    getUserToken()
     getUser();
   }, []);
 
@@ -199,6 +217,7 @@ export default function BlogProvider({ children }: { children: ReactNode }) {
         addComment,
         increaseViewCount,
         searchBlog,
+        setUserToken,
         loading,
         error,
       }}

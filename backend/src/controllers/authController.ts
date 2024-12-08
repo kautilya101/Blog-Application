@@ -19,10 +19,10 @@ const signInUser = async(req:Request, res:Response) => {
     }
 
     const token = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET,{ expiresIn: '3600h'});
-    res.status(200).json({user_id: user.id,email: user.email,token: token})
+    return res.status(200).json({user_id: user.id,email: user.email,token: token})
   }
   catch(e){
-    res.status(401).json({error: "Login Failed"})
+    return res.status(401).json({error: "Login Failed"})
   }
   
 }
@@ -39,10 +39,10 @@ const signUpUser = async(req:Request, res: Response ) => {
     const passwordHash = await bcrypt.hash(parsed.password,10);
     const response = await postRepo.signUpUser(parsed.username ,parsed.email,passwordHash);
     if(response) 
-      res.status(201).json({success: true,message: 'user created successfully'});
+      return res.status(201).json({success: true,message: 'user created successfully'});
   }
   catch(e){
-    res.status(500).json({error: "Registration-failed"})
+    return res.status(500).json({error: "Registration-failed"})
   }
 }
 

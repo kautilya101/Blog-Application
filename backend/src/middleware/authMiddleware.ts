@@ -12,7 +12,7 @@ declare global {
 export const verifyToken = (req: Request,res: Response,next: NextFunction) => {
   const token = req.header('Authorization');
   if(!token){
-    res.status(401).json({
+    return res.status(401).json({
       error: 'Access Denied'
     })
   }
@@ -22,7 +22,7 @@ export const verifyToken = (req: Request,res: Response,next: NextFunction) => {
     next();
   }
   catch(e){
-    res.status(401).json({
+    return res.status(401).json({
       error: 'Invalid Token'
     })
   }

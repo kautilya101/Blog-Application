@@ -14,7 +14,7 @@ app.use('/v1/api/user',authRouter)
 app.use('/v1/api/',postRouter)
 
 app.get("/ping", async(req,res) => {
-  res.status(200).json({
+  return res.status(200).json({
     message: "pong"
   })
 })

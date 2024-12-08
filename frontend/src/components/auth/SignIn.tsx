@@ -1,11 +1,12 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import Cookies from 'js-cookie';
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../Header";
+import BlogProvider, { BlogContext } from "../../context/BlogContextProvider";
 
 export default function SignIn() {
   const url = import.meta.env.VITE_BASE_URL;
-
+  const { setUserToken } = useContext(BlogContext)!;
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   const [loading,setLoading] = useState(false);
@@ -26,6 +27,7 @@ export default function SignIn() {
         })
         if(response.ok) {
           const data = await response.json();
+          setUserToken(data.token);
           Cookies.set('token',data.token,{expires: 15,secure:true});
           navigate('/')
         }

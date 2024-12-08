@@ -4,7 +4,7 @@ import { TBlog, TUpdateValue } from "../../types/types";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
 import { BlogContext } from "../../context/BlogContextProvider";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 type TBlogList = {
   blogs: TBlog[];
@@ -13,7 +13,7 @@ type TBlogList = {
 };
 
 export default function BlogList({ blogs, loading, blogtype }: TBlogList) {
-  const { deleteBlog,setUpdateValue,error } = useContext(BlogContext)!;
+  const { deleteBlog, setUpdateValue, error, getAllBlogs } = useContext(BlogContext)!;
 
   const EditBlog = (updateBlog: TUpdateValue) => {
     setUpdateValue(updateBlog)
@@ -22,6 +22,11 @@ export default function BlogList({ blogs, loading, blogtype }: TBlogList) {
   const DeleteBlog = (userId: number) => {
     deleteBlog(userId);
   };
+
+  useEffect(() => {
+    getAllBlogs();
+    console.log("loading bloglist")
+  },[]);
 
 
   return (
@@ -63,7 +68,7 @@ export default function BlogList({ blogs, loading, blogtype }: TBlogList) {
       )}
       {error ? 
         <div className="text-center">
-          {error}
+          {JSON.stringify(error)} 
         </div> : ""
       }
     </div>

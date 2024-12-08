@@ -23,6 +23,7 @@ export type BlogContextType = {
   addComment:(content:string,postId:number) => void;
   increaseViewCount:(postId:number) => void;
   searchBlog:(title: string) => TBlog[];
+  setUserToken: (token:string) => void
   loading: boolean;
   error: unknown | null;
 }
